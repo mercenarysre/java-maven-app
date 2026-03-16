@@ -19,6 +19,16 @@ pipeline {
                 }
             }
         }
+        stage("code quality") {
+            steps {
+                echo 'running code analysis...'
+                withSonarQubeEnv('sonarqube') {
+                    withMaven(maven: 'maven:3.9') {
+                        sh 'mvn sonar:sonar'
+                    }
+                }
+            }
+        }
         stage("deploy") {
             steps {
                 echo 'deploying the application...'
