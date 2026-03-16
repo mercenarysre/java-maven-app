@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo 'running code analysis...'
                 withSonarQubeEnv('sonarqube') {
-                    withMaven(maven: 'maven:3.9') {
+                    withMaven(maven: 'maven-3.9') {
                         sh 'mvn sonar:sonar'
                     }
                 }
