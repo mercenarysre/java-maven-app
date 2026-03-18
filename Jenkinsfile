@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('code quality') {
             steps {
@@ -12,7 +11,6 @@ pipeline {
                 }
             }
         }
-
         stage('build jar') {
             steps {
                 echo 'building the application...'
